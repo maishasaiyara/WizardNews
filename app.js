@@ -4,7 +4,7 @@ const postBank = require("./postBank");
 const path = require('path');
 const app = express();
 const staticPublic = express.static(path.join(__dirname, 'public'))
-const PORT = 1337;
+const { PORT = 1337 } = process.env;
 const timeAgo = require('node-time-ago');
 
 
@@ -62,7 +62,8 @@ app.get('/posts/:id', (req, res) => {
   </head>
   <body>
   <div class="news-list">
-  <header><img src="/logo.png"/>Wizard News</header>
+  <header><img src="/logo.png"/>Wizard News</header> 
+  <img src="/IMG_123.jpg"/>
   ${posts.map(post => `
   <div class='news-item'>
   <p>
